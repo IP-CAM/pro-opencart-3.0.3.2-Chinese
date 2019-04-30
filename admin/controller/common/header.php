@@ -26,6 +26,27 @@ class ControllerCommonHeader extends Controller {
 
 			$data['home'] = $this->url->link('common/dashboard', '', true);
 		} else {
+
+            $data['quick_links'][] = array(
+                'name'      => $this->language->get('text_module'),
+                'url'       => $this->url->link('marketplace/extension', 'type=module&user_token=' . $this->session->data['user_token'], true),
+                'decollator' => '/'
+            );
+            $data['quick_links'][] = array(
+                'name'  => $this->language->get('text_payment'),
+                'url'   => $this->url->link('marketplace/extension', 'type=payment&user_token=' . $this->session->data['user_token'], true),
+                'decollator' => '/'
+            );
+            $data['quick_links'][] = array(
+                'name'  => $this->language->get('text_layout'),
+                'url'   => $this->url->link('design/layout', 'user_token=' . $this->session->data['user_token'], true),
+                'decollator' => '/'
+            );
+            $data['quick_links'][] = array(
+                'name'  => $this->language->get('text_product'),
+                'url'   => $this->url->link('catalog/product', 'user_token=' . $this->session->data['user_token'], true),
+            );
+
 			$data['logged'] = true;
 
 			$data['home'] = $this->url->link('common/dashboard', 'user_token=' . $this->session->data['user_token'], true);
