@@ -39,6 +39,13 @@
     <div id="header-logo" class="navbar-header"><a href="{{ home }}" class="navbar-brand"><img src="view/image/logo.png" alt="{{ heading_title }}" title="{{ heading_title }}" /></a></div>
     <a href="#" id="button-menu"><span class="fa fa-bars"></span></a>{% if logged %}
 
+    <div class="alert alert-info pull-left hidden-sm hidden-xs" style="margin: 10px 0 0 16px;">
+      <i class="fa fa-link"></i> {{ text_quick_links }} :
+      {% for quick_link in quick_links %}
+        <a class="btn-link" href="{{ quick_link.url }}">{{ quick_link.name }}</a> {{ quick_link.decollator }}
+      {% endfor %}
+    </div>
+
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ image }}" alt="{{ firstname }} {{ lastname }}" title="{{ username }}" id="user-profile" class="img-circle" />{{ firstname }} {{ lastname }} <i class="fa fa-caret-down fa-fw"></i></a>
         <ul class="dropdown-menu dropdown-menu-right">
