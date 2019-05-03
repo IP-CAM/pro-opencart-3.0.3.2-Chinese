@@ -1786,19 +1786,19 @@ CREATE TABLE `oc_layout` (
 --
 
 INSERT INTO `oc_layout` (`layout_id`, `name`) VALUES
-(1, 'Home'),
-(2, 'Product'),
-(3, 'Category'),
-(4, 'Default'),
-(5, 'Manufacturer'),
-(6, 'Account'),
-(7, 'Checkout'),
-(8, 'Contact'),
-(9, 'Sitemap'),
-(10, 'Affiliate'),
-(11, 'Information'),
-(12, 'Compare'),
-(13, 'Search');
+(1, '首页'),
+(2, '商品详情'),
+(3, '商品分类'),
+(4, '默认'),
+(5, '品牌'),
+(6, '账户中心'),
+(7, '结账'),
+(8, '联系我们'),
+(9, '网站地图'),
+(10, '联盟推广'),
+(11, '信息内容'),
+(12, '商品对比'),
+(13, '商品搜索');
 
 -----------------------------------------------------------
 
