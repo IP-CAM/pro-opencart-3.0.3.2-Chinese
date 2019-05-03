@@ -91,3 +91,4 @@ $_['text_paypal_search']            = '搜寻交易记录';
 $_['text_complete_status']          = '完成订单';
 $_['text_processing_status']        = '处理中订单';
 $_['text_other_status']             = '其它状态订单';
+$_['text_city']                     = '市区设置';
