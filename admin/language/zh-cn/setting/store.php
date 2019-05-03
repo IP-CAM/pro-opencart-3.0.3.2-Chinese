@@ -63,7 +63,7 @@ $_['entry_icon']                       = 'Icon 图标';
 $_['entry_secure']                     = '使用 SSL';
 
 // Help
-$_['help_url']                         = '请输入你网店的完整网址。 注意在最后加上 \'/\' 。 例 http//www.opencart.cn/app/<br /><br />请用新的域名或二级域名指定到你的主机。';
+$_['help_url']                         = '请输入你网店的完整网址。 注意在最后加上 \'/\' 。 例 http//www.opencart.com/app/<br /><br />请用新的域名或二级域名指定到你的主机。';
 $_['help_ssl']                         = '要使用SSL， 您需要在您的服务安装SSL及在设定档有SSL凭证。';
 $_['help_geocode']                     = '请手动输入您的存储位置的地理编码。';
 $_['help_open']                        = '您商店的营业时间。';
