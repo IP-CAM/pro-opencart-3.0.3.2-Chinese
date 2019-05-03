@@ -63,11 +63,22 @@ $(document).ready(function() {
 	$(document).on('click', '[data-toggle=\'tooltip\']', function(e) {
 		$('body > .tooltip').remove();
 	});
-	
+
+    if ($(window).width() >= 768) {
+        if (localStorage.getItem('menu_active') === 'false') {
+            $('#column-left').removeClass('active');
+        } else {
+            $('#column-left').addClass('active');
+        }
+    }
+
 	$('#button-menu').on('click', function(e) {
-		e.preventDefault();
-		
-		$('#column-left').toggleClass('active');
+        e.preventDefault();
+
+        $('#column-left').toggleClass('active');
+        if ($(window).width() >= 768) {
+            localStorage.setItem('menu_active', $('#column-left').hasClass('active'));
+        }
 	});
 
 	// Set last page opened on the menu
