@@ -1179,7 +1179,7 @@ class ControllerSaleOrder extends Controller {
 			$data['user_agent'] = $order_info['user_agent'];
 			$data['accept_language'] = $order_info['accept_language'];
 
-			// Additional Tabs
+            // Additional Tabs
 			$data['tabs'] = array();
 
 			if ($this->user->hasPermission('access', 'extension/payment/' . $order_info['payment_code'])) {
@@ -1200,6 +1200,17 @@ class ControllerSaleOrder extends Controller {
 				}
 			}
 
+            //express tracking tab
+            if ($this->config->get('module_express_tracking_status') == 1) {
+                $this->load->language('extension/module/express_tracking');
+                $data['tabs'][] = array(
+                    'code'    => 'module_express_tracking',
+                    'title'   => $this->language->get('heading_title'),
+                    'content' => $this->load->controller('extension/module/express_tracking/orderForm', array('order_id'=>$order_id)),
+                );
+            }
+
+            //fraud tab
 			$this->load->model('setting/extension');
 
 			$extensions = $this->model_setting_extension->getInstalled('fraud');
@@ -1219,7 +1230,6 @@ class ControllerSaleOrder extends Controller {
 					}
 				}
 			}
-			
 			// The URL we send API requests to
 			$data['catalog'] = $this->request->server['HTTPS'] ? HTTPS_CATALOG : HTTP_CATALOG;
 			

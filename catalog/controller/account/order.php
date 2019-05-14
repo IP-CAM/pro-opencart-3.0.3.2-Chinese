@@ -325,6 +325,11 @@ class ControllerAccountOrder extends Controller {
 
 			$data['continue'] = $this->url->link('account/order', '', true);
 
+			//Express tracking
+            if ($this->config->get('module_express_tracking_status') == 1) {
+                $data['express_tracking'] = 1;
+            }
+
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
