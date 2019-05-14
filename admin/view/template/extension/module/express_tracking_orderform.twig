@@ -1,0 +1,80 @@
+<div id="express_history"></div>
+<br />
+<fieldset>
+  <legend>{{ text_express_info }}</legend>
+  <form class="form-horizontal">
+    <input type="hidden" name="order_id" value="{{ order_id }}" id="input-order-id" />
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="input-express-name">{{ entry_express_name }}</label>
+      <div class="col-sm-10">
+        <select name="express_name" id="input-express-name" class="form-control">
+
+            {% for com in companies %}
+                  <option value="{{ com.code }}" selected="selected">{{ com.name }}</option>
+            {% endfor %}
+
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="input-tracking-number">{{ entry_tracking_number }}</label>
+      <div class="col-sm-10">
+          <input type="text" name="tracking_number" value="" id="input-tracking-number" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label" for="input-express-comment">{{ entry_express_comment }}</label>
+      <div class="col-sm-10">
+        <textarea name="express_comment" rows="8" id="input-express-comment" class="form-control"></textarea>
+      </div>
+    </div>
+
+  </form>
+</fieldset>
+<div class="text-right">
+  <button id="button-express" data-loading-text="{{ text_loading }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i> {{ button_express_add }}</button>
+</div>
+<script type="text/javascript"><!--
+
+$('#express_history').load('index.php?route=extension/module/express_tracking/history&user_token={{ user_token }}&order_id={{ order_id }}');
+
+$('#button-express').on('click', function() {
+
+    $.ajax({
+        url: 'index.php?route=extension/module/express_tracking/addOrderExpress&user_token={{ user_token }}&order_id={{ order_id }}',
+        type: 'post',
+        dataType: 'json',
+        data: 'express_code=' + encodeURIComponent($('select[name=\'express_name\']').val()) + '&tracking_number=' + encodeURIComponent($('input[name=\'tracking_number\']').val()) + '&comment=' + encodeURIComponent($('textarea[name=\'express_comment\']').val()),
+        beforeSend: function() {
+            $('#button-express').button('loading');
+        },
+        complete: function() {
+            $('#button-express').button('reset');
+        },
+        success: function(json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#express_history').before('<div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+            }
+
+            if (json['success']) {
+                $('#express_history').load('index.php?route=extension/module/express_tracking/history&user_token={{ user_token }}&order_id={{ order_id }}');
+
+                $('#express_history').before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+                $('textarea[name=\'comment\']').val('');
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+
+});
+
+
+//--></script>

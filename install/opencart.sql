@@ -8462,3 +8462,22 @@ INSERT INTO `city` (`city_id`, `zone_id`, `parent_city_id`, `name`, `status`) VA
 (948, 4248, 0, '沧州市', 1),
 (965, 4249, 0, '哈尔滨市', 1),
 (984, 4249, 0, '齐齐哈尔市', 1);
+
+-----------------------------------------------------------
+
+--
+-- Table structure for table `oc_order_express`
+--
+
+DROP TABLE IF EXISTS `oc_order_express`;
+CREATE TABLE `oc_order_express` (
+	`order_express_id` INT(11) NOT NULL AUTO_INCREMENT,
+	`order_id` INT(11) NOT NULL DEFAULT '0',
+	`date_added` DATETIME NOT NULL,
+	`express_name` VARCHAR(250) NOT NULL DEFAULT '',
+	`express_code` VARCHAR(50) NOT NULL DEFAULT '',
+	`tracking_number` VARCHAR(80) NOT NULL DEFAULT '',
+	`comment` MEDIUMTEXT NULL,
+	PRIMARY KEY (`order_express_id`),
+	INDEX `idx_order_id` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

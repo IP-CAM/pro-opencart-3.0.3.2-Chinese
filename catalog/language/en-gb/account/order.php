@@ -18,6 +18,7 @@ $_['text_history']          = 'Order History';
 $_['text_success']          = 'Success: You have added <a href="%s">%s</a> to your <a href="%s">shopping cart</a>!';
 $_['text_empty']            = 'You have not made any previous orders!';
 $_['text_error']            = 'The order you requested could not be found!';
+$_['text_express_tracking'] = 'Express Tracking';
 
 // Column
 $_['column_order_id']       = 'Order ID';
@@ -32,6 +33,13 @@ $_['column_action']         = 'Action';
 $_['column_date_added']     = 'Date Added';
 $_['column_status']         = 'Status';
 $_['column_comment']        = 'Comment';
+$_['column_express_accept_time']    = 'Accept Time';
+$_['column_express_accept_station'] = 'Accept Station';
+$_['column_express_remark']         = 'Remark';
+
+
+// Button
+$_['button_pay_continue']   = 'Pay Continue';
 
 // Error
 $_['error_reorder']         = '%s is not currently available to be reordered.';

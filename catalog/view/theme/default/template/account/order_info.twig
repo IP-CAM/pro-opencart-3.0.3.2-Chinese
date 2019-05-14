@@ -72,7 +72,7 @@
               {% endif %} </tr>
           </thead>
           <tbody>
-          
+
           {% for product in products %}
           <tr>
             <td class="text-left">{{ product.name }}
@@ -97,9 +97,9 @@
             {% endif %} </tr>
           {% endfor %}
             </tbody>
-          
+
           <tfoot>
-          
+
           {% for total in totals %}
           <tr>
             <td colspan="3"></td>
@@ -110,7 +110,7 @@
             {% endif %} </tr>
           {% endfor %}
             </tfoot>
-          
+
         </table>
       </div>
       {% if comment %}
@@ -127,6 +127,24 @@
         </tbody>
       </table>
       {% endif %}
+
+      {% if express_tracking %}
+        <h3>{{ text_express_tracking }}</h3>
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <td class="text-left">{{ column_express_accept_time }}</td>
+            <td class="text-left">{{ column_express_accept_station }}</td>
+            <td class="text-left">{{ column_express_remark }}</td>
+          </tr>
+          </thead>
+          <tbody id="express_tracking">
+
+          </tbody>
+
+        </table>
+      {% endif %}
+
       {% if histories %}
       <h3>{{ text_history }}</h3>
       <table class="table table-bordered table-hover">
@@ -138,7 +156,7 @@
           </tr>
         </thead>
         <tbody>
-        
+
         {% if histories %}
         {% for history in histories %}
         <tr>
@@ -153,7 +171,7 @@
         </tr>
         {% endif %}
           </tbody>
-        
+
       </table>
       {% endif %}
       <div class="buttons clearfix">
@@ -162,4 +180,8 @@
       {{ content_bottom }}</div>
     {{ column_right }}</div>
 </div>
+<script type="text/javascript"><!--
+    $('#express_tracking').load('index.php?route=extension/module/express_tracking/getlist&&order_id={{ order_id }}');
+//--></script>
+
 {{ footer }}
