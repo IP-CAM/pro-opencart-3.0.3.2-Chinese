@@ -1767,7 +1767,8 @@ CREATE TABLE `oc_language` (
 --
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
-(1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1);
+(1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 2, 1),
+(2, '简体中文', 'zh-cn', 'zh-CN,zh-CN.UTF-8,zh-cn', '', '', 1, 1);
 
 -----------------------------------------------------------
 
@@ -1911,7 +1912,10 @@ CREATE TABLE `oc_length_class_description` (
 INSERT INTO `oc_length_class_description` (`length_class_id`, `language_id`, `title`, `unit`) VALUES
 (1, 1, 'Centimeter', 'cm'),
 (2, 1, 'Millimeter', 'mm'),
-(3, 1, 'Inch', 'in');
+(3, 1, 'Inch', 'in'),
+(1, 2, '厘米', 'cm'),
+(2, 2, '毫米', 'mm'),
+(3, 2, '英寸', 'in');
 
 -----------------------------------------------------------
 
@@ -2433,8 +2437,21 @@ INSERT INTO `oc_order_status` (`order_status_id`, `language_id`, `name`) VALUES
 (1, 1, 'Pending'),
 (16, 1, 'Voided'),
 (15, 1, 'Processed'),
-(14, 1, 'Expired');
-
+(14, 1, 'Expired'),
+(2, 2, '处理中'),
+(3, 2, '已发货'),
+(7, 2, '已取消'),
+(5, 2, '已完成'),
+(8, 2, '已拒绝'),
+(9, 2, '取消撤回'),
+(10, 2, '失败'),
+(11, 2, '已退款'),
+(12, 2, '已撤消'),
+(13, 2, '已支付'),
+(1, 2, '待处理'),
+(16, 2, '已失效'),
+(15, 2, '已处理'),
+(14, 2, '已过期');
 -----------------------------------------------------------
 
 --
@@ -3193,7 +3210,10 @@ CREATE TABLE `oc_return_action` (
 INSERT INTO `oc_return_action` (`return_action_id`, `language_id`, `name`) VALUES
 (1, 1, 'Refunded'),
 (2, 1, 'Credit Issued'),
-(3, 1, 'Replacement Sent');
+(3, 1, 'Replacement Sent'),
+(1, 2, '已退款'),
+(2, 2, '已退款至信用卡'),
+(3, 2, '已补发商品');
 
 -----------------------------------------------------------
 
@@ -3235,7 +3255,12 @@ INSERT INTO `oc_return_reason` (`return_reason_id`, `language_id`, `name`) VALUE
 (2, 1, 'Received Wrong Item'),
 (3, 1, 'Order Error'),
 (4, 1, 'Faulty, please supply details'),
-(5, 1, 'Other, please supply details');
+(5, 1, 'Other, please supply details'),
+(1, 2, '未收到货'),
+(2, 2, '发错商品'),
+(3, 2, '错误下单'),
+(4, 2, '商品损坏，请添加描述'),
+(5, 2, '其它，请添加描述');
 
 -----------------------------------------------------------
 
@@ -3258,7 +3283,10 @@ CREATE TABLE `oc_return_status` (
 INSERT INTO `oc_return_status` (`return_status_id`, `language_id`, `name`) VALUES
 (1, 1, 'Pending'),
 (3, 1, 'Complete'),
-(2, 1, 'Awaiting Products');
+(2, 1, 'Awaiting Products'),
+(1, 2, '待处理'),
+(3, 2, '已完成'),
+(2, 2, '等待寄回商品');
 
 -----------------------------------------------------------
 
@@ -3568,7 +3596,11 @@ INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
 (7, 1, 'In Stock'),
 (8, 1, 'Pre-Order'),
 (5, 1, 'Out Of Stock'),
-(6, 1, '2-3 Days');
+(6, 1, '2-3 Days'),
+(7, 2, '有货'),
+(8, 2, '预售'),
+(5, 2, '无货'),
+(6, 2, '2-3 天后到货');
 
 -----------------------------------------------------------
 
@@ -3606,8 +3638,8 @@ CREATE TABLE `oc_tax_class` (
 --
 
 INSERT INTO `oc_tax_class` (`tax_class_id`, `title`, `description`, `date_added`, `date_modified`) VALUES
-(9, 'Taxable Goods', 'Taxed goods', '2009-01-06 23:21:53', '2011-09-23 14:07:50'),
-(10, 'Downloadable Products', 'Downloadable', '2011-09-21 22:19:39', '2011-09-22 10:27:36');
+(9, '征税商品', '征税商品', '2009-01-06 23:21:53', '2011-09-23 14:07:50'),
+(10, '电子下载商品', '电子下载商品', '2011-09-21 22:19:39', '2011-09-22 10:27:36');
 
 -----------------------------------------------------------
 
@@ -3999,7 +4031,11 @@ INSERT INTO `oc_weight_class_description` (`weight_class_id`, `language_id`, `ti
 (1, 1, 'Kilogram', 'kg'),
 (2, 1, 'Gram', 'g'),
 (5, 1, 'Pound ', 'lb'),
-(6, 1, 'Ounce', 'oz');
+(6, 1, 'Ounce', 'oz'),
+(1, 2, '千克', 'kg'),
+(2, 2, '克', 'g'),
+(5, 2, '磅', 'lb'),
+(6, 2, '盎司', 'oz');
 
 -----------------------------------------------------------
 
