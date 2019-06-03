@@ -1023,6 +1023,7 @@ CREATE TABLE `oc_customer` (
   `token` text NOT NULL,
   `code` varchar(40) NOT NULL,
   `date_added` datetime NOT NULL,
+  `qq_openid` VARCHAR(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
