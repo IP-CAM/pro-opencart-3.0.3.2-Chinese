@@ -148,5 +148,11 @@ class ModelAccountCustomer extends Model {
 		$query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "customer_affiliate` WHERE `tracking` = '" . $this->db->escape($tracking) . "'");
 
 		return $query->row;
-	}			
+	}
+
+    public function updateCustomerQQInfo($customer_id, $qq_openid) {
+
+        $this->db->query("UPDATE " . DB_PREFIX . "customer SET qq_openid = '" . $this->db->escape(trim($qq_openid)) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+
+    }
 }
