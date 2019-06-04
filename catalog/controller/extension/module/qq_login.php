@@ -3,7 +3,25 @@ class ControllerExtensionModuleQQLogin extends Controller {
 
     public function index() {
         if (!$this->customer->isLogged()) {
-            $this->response->redirect($this->url->link('extension/module/qq_login/login'));
+            $data['qq_login_url'] = $this->url->link('extension/module/qq_login/login', '', true);
+
+            $this->load->language('extension/module/qq_login');
+
+            $data['text_qq_login'] = $this->language->get('text_qq_login');
+
+            if ($this->customer->isLogged()) {
+                $data['logged'] = 1;
+            } else {
+                $data['logged'] = 0;
+            }
+
+            if(isset($this->session->data['qq_login_openid'])) {
+                $data['qq_login_authorized'] = 1;
+            } else {
+                $data['qq_login_authorized'] = 0;
+            }
+
+            return $this->load->view('extension/module/qq_login', $data);
         }
     }
 
