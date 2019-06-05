@@ -161,4 +161,10 @@ class ModelAccountCustomer extends Model {
         $this->db->query("UPDATE " . DB_PREFIX . "customer SET weibo_login_access_token = '" . $this->db->escape(trim($weibo_login_access_token)) . "', weibo_login_uid = '" . $this->db->escape(trim($weibo_login_uid)) . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
     }
+
+    public function updateCustomerWeixinInfo($customer_id, $weixin_login_openid, $weixin_login_unionid) {
+
+        $this->db->query("UPDATE " . DB_PREFIX . "customer SET weixin_login_openid = '" . $this->db->escape(trim($weixin_login_openid)) . "', weixin_login_unionid = '" . $this->db->escape(trim($weixin_login_unionid)) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+
+    }
 }

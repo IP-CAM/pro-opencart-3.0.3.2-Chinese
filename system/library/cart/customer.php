@@ -173,6 +173,36 @@ class Customer {
 
     }
 
+    public function login_weixin($weixin_login_openid){
+
+        if ($weixin_login_openid) {
+            $customer = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer WHERE weixin_login_openid = '" . $this->db->escape($weixin_login_openid) . "'");
+
+            if ($customer->num_rows) {
+                $this->session->data['customer_id'] = $customer->row['customer_id'];
+
+                $this->customer_id = $customer->row['customer_id'];
+                $this->firstname = $customer->row['firstname'];
+                $this->lastname = $customer->row['lastname'];
+                $this->customer_group_id = $customer->row['customer_group_id'];
+                $this->email = $customer->row['email'];
+                $this->telephone = $customer->row['telephone'];
+                $this->newsletter = $customer->row['newsletter'];
+                $this->address_id = $customer->row['address_id'];
+
+                $this->db->query("UPDATE " . DB_PREFIX . "customer SET language_id = '" . (int)$this->config->get('config_language_id') . "', ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "' WHERE customer_id = '" . (int)$this->customer_id . "'");
+
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+
+    }
+
 	public function logout() {
 		unset($this->session->data['customer_id']);
         unset($this->session->data['qq_openid']);
