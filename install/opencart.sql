@@ -1026,6 +1026,8 @@ CREATE TABLE `oc_customer` (
   `qq_openid` VARCHAR(64) NOT NULL DEFAULT '',
   `weibo_login_access_token` varchar(128) NOT NULL DEFAULT '',
   `weibo_login_uid` varchar(50) NOT NULL DEFAULT '',
+  `weixin_login_openid` varchar(64) NOT NULL DEFAULT '',
+  `weixin_login_unionid` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`customer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
