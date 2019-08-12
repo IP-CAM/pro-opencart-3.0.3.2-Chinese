@@ -1,7 +1,7 @@
 <?php
 
 // Heading
-$_['heading_title']       = '布局';
+$_['heading_title']       = '页面布局';
 
 // Text
 $_['text_success']        = '成功：布局已修改！';
@@ -29,7 +29,7 @@ $_['entry_module']        = '模块';
 
 // Error
 $_['error_permission']  = '错误：您没有权限修改布局！';
-$_['error_name']        = '布局标题必须在 3 至 64个字符之间！';
+$_['error_name']        = '布局标题必须在 2 至 64个字符之间！';
 $_['error_default']     = '错误：该布局为商店的默认布局，不能删除！';
 $_['error_store']       = '错误：该布局 %s 商店正在使用，不能删除！';
 $_['error_product']     = '错误：该布局 %s 商品正在使用，不能删除！';
