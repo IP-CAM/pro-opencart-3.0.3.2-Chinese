@@ -191,7 +191,16 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => array()
 				);	
 			}
-			
+
+            if ($this->user->hasPermission('access', 'design/mobile_layout')) {
+                $design[] = array(
+                    'name'	   => $this->language->get('text_mobile_layout'),
+                    'href'     => $this->url->link('design/mobile_layout', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            }
+
+
 			if ($this->user->hasPermission('access', 'design/theme')) {	
 				$design[] = array(
 					'name'	   => $this->language->get('text_theme'),
