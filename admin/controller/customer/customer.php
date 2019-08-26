@@ -559,12 +559,6 @@ class ControllerCustomerCustomer extends Controller {
 			$data['error_firstname'] = '';
 		}
 
-		if (isset($this->error['lastname'])) {
-			$data['error_lastname'] = $this->error['lastname'];
-		} else {
-			$data['error_lastname'] = '';
-		}
-
 		if (isset($this->error['email'])) {
 			$data['error_email'] = $this->error['email'];
 		} else {
@@ -705,14 +699,6 @@ class ControllerCustomerCustomer extends Controller {
 			$data['firstname'] = $customer_info['firstname'];
 		} else {
 			$data['firstname'] = '';
-		}
-
-		if (isset($this->request->post['lastname'])) {
-			$data['lastname'] = $this->request->post['lastname'];
-		} elseif (!empty($customer_info)) {
-			$data['lastname'] = $customer_info['lastname'];
-		} else {
-			$data['lastname'] = '';
 		}
 
 		if (isset($this->request->post['email'])) {
@@ -960,10 +946,6 @@ class ControllerCustomerCustomer extends Controller {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-		if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
-			$this->error['lastname'] = $this->language->get('error_lastname');
-		}
-
 		if ((utf8_strlen($this->request->post['email']) > 96) || !filter_var($this->request->post['email'], FILTER_VALIDATE_EMAIL)) {
 			$this->error['email'] = $this->language->get('error_email');
 		}
@@ -1013,13 +995,13 @@ class ControllerCustomerCustomer extends Controller {
 					$this->error['address'][$key]['firstname'] = $this->language->get('error_firstname');
 				}
 
-				if ((utf8_strlen($value['lastname']) < 1) || (utf8_strlen($value['lastname']) > 32)) {
-					$this->error['address'][$key]['lastname'] = $this->language->get('error_lastname');
-				}
-
 				if ((utf8_strlen($value['address_1']) < 3) || (utf8_strlen($value['address_1']) > 128)) {
 					$this->error['address'][$key]['address_1'] = $this->language->get('error_address_1');
 				}
+
+                if ((utf8_strlen($value['telephone']) < 5) || (utf8_strlen($value['telephone']) > 32)) {
+                    $this->error['address'][$key]['telephone'] = $this->language->get('error_telephone');
+                }
 
 				if ((utf8_strlen($value['city']) < 2) || (utf8_strlen($value['city']) > 128)) {
 					$this->error['address'][$key]['city'] = $this->language->get('error_city');
@@ -1429,7 +1411,6 @@ class ControllerCustomerCustomer extends Controller {
 					'name'              => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8')),
 					'customer_group'    => $result['customer_group'],
 					'firstname'         => $result['firstname'],
-					'lastname'          => $result['lastname'],
 					'email'             => $result['email'],
 					'telephone'         => $result['telephone'],
 					'custom_field'      => json_decode($result['custom_field'], true),

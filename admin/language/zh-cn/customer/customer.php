@@ -45,8 +45,7 @@ $_['column_action']             = '操作';
 
 // Entry
 $_['entry_customer_group']      = '客户等级';
-$_['entry_firstname']           = '名字';
-$_['entry_lastname']            = '姓氏';
+$_['entry_firstname']           = '姓名';
 $_['entry_email']               = 'E-Mail';
 $_['entry_telephone']           = '电话';
 $_['entry_newsletter']          = '订阅邮件';
@@ -56,8 +55,7 @@ $_['entry_safe']                = '安全';
 $_['entry_password']            = '密码';
 $_['entry_confirm']             = '确认密码';
 $_['entry_company']             = '公司';
-$_['entry_address_1']           = '地址';
-$_['entry_address_2']           = '地址2';
+$_['entry_address_1']           = '详细地址';
 $_['entry_city']                = '城市';
 $_['entry_postcode']            = '邮政编码';
 $_['entry_country']             = '国家';

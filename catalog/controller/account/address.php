@@ -168,12 +168,11 @@ class ControllerAccountAddress extends Controller {
 			if ($result['address_format']) {
 				$format = $result['address_format'];
 			} else {
-				$format = '{firstname} {lastname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
+				$format = '{firstname}' . "\n" . '{company}' . "\n" . '{address_1}' . "\n" . '{address_2}' . "\n" . '{city} {postcode}' . "\n" . '{zone}' . "\n" . '{country}';
 			}
 
 			$find = array(
 				'{firstname}',
-				'{lastname}',
 				'{company}',
 				'{address_1}',
 				'{address_2}',
@@ -186,7 +185,6 @@ class ControllerAccountAddress extends Controller {
 
 			$replace = array(
 				'firstname' => $result['firstname'],
-				'lastname'  => $result['lastname'],
 				'company'   => $result['company'],
 				'address_1' => $result['address_1'],
 				'address_2' => $result['address_2'],
@@ -256,11 +254,11 @@ class ControllerAccountAddress extends Controller {
 			$data['error_firstname'] = '';
 		}
 
-		if (isset($this->error['lastname'])) {
-			$data['error_lastname'] = $this->error['lastname'];
-		} else {
-			$data['error_lastname'] = '';
-		}
+        if (isset($this->error['telephone'])) {
+            $data['error_telephone'] = $this->error['telephone'];
+        } else {
+            $data['error_telephone'] = '';
+        }
 
 		if (isset($this->error['address_1'])) {
 			$data['error_address_1'] = $this->error['address_1'];
@@ -316,13 +314,13 @@ class ControllerAccountAddress extends Controller {
 			$data['firstname'] = '';
 		}
 
-		if (isset($this->request->post['lastname'])) {
-			$data['lastname'] = $this->request->post['lastname'];
-		} elseif (!empty($address_info)) {
-			$data['lastname'] = $address_info['lastname'];
-		} else {
-			$data['lastname'] = '';
-		}
+        if (isset($this->request->post['telephone'])) {
+            $data['telephone'] = $this->request->post['telephone'];
+        } elseif (!empty($address_info)) {
+            $data['telephone'] = $address_info['telephone'];
+        } else {
+            $data['telephone'] = '';
+        }
 
 		if (isset($this->request->post['company'])) {
 			$data['company'] = $this->request->post['company'];
@@ -430,9 +428,9 @@ class ControllerAccountAddress extends Controller {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
-			$this->error['lastname'] = $this->language->get('error_lastname');
-		}
+        if ((utf8_strlen(trim($this->request->post['telephone'])) < 5) || (utf8_strlen(trim($this->request->post['telephone'])) > 32)) {
+            $this->error['telephone'] = $this->language->get('error_telephone');
+        }
 
 		if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
 			$this->error['address_1'] = $this->language->get('error_address_1');
