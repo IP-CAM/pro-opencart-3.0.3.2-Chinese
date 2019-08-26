@@ -44,8 +44,7 @@ $_['column_action']             = 'Action';
 
 // Entry
 $_['entry_customer_group']      = 'Customer Group';
-$_['entry_firstname']           = 'First Name';
-$_['entry_lastname']            = 'Last Name';
+$_['entry_firstname']           = 'Full Name';
 $_['entry_email']               = 'E-Mail';
 $_['entry_telephone']           = 'Telephone';
 $_['entry_newsletter']          = 'Newsletter';
@@ -55,8 +54,7 @@ $_['entry_safe']                = 'Safe';
 $_['entry_password']            = 'Password';
 $_['entry_confirm']             = 'Confirm';
 $_['entry_company']             = 'Company';
-$_['entry_address_1']           = 'Address 1';
-$_['entry_address_2']           = 'Address 2';
+$_['entry_address_1']           = 'Address';
 $_['entry_city']                = 'City';
 $_['entry_postcode']            = 'Postcode';
 $_['entry_country']             = 'Country';

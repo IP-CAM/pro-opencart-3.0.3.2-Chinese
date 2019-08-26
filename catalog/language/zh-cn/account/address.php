@@ -14,11 +14,10 @@ $_['text_delete']          = '您的地址已删除';
 $_['text_empty']           = '您还没有地址。';
 
 // Entry
-$_['entry_firstname']      = '名字';
-$_['entry_lastname']       = '姓氏';
+$_['entry_firstname']      = '姓名';
+$_['entry_telephone']      = '联系电话';
 $_['entry_company']        = '公司名称';
-$_['entry_address_1']      = '地址行 1';
-$_['entry_address_2']      = '地址行 2';
+$_['entry_address_1']      = '详细地址';
 $_['entry_postcode']       = '邮政编码';
 $_['entry_city']           = '城市';
 $_['entry_country']        = '国家';
@@ -29,10 +28,10 @@ $_['entry_default']        = '设为默认地址';
 $_['error_delete']         = '错误：您必须至少保留一个地址！';
 $_['error_default']        = '错误：您不能删除默认地址！';
 $_['error_firstname']      = '名字必须介于 1 到 32 个字符之间！';
-$_['error_lastname']       = '姓氏必须介于 1 到 32 个字符之间！';
 $_['error_address_1']      = '详细地址必须介于 3 到 128 个字符之间！';
 $_['error_postcode']       = '邮政编码必须介于 2 到 10 个字符之间！';
 $_['error_city']           = '城市必须介于 2 到 128 个字符！';
 $_['error_country']        = '请选择国家！';
 $_['error_zone']           = '请选择省份！';
 $_['error_custom_field']   = '%s 必填！';
+$_['error_telephone']      = '联系电话必须介于 5 到 32 个字符之间！';
