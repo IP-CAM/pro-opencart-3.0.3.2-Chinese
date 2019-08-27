@@ -1,5 +1,8 @@
 <?php
 namespace Template;
+
+use Utils\Helper;
+
 final class Twig {
 	private $twig;
 	private $data = array();
@@ -29,6 +32,9 @@ final class Twig {
 		$this->twig = new \Twig_Environment($loader, $config);
 		
 		try {
+            // load helper object
+            $this->data['helper'] = Helper::getSingleton();
+
 			// load template
 			$template = $this->twig->loadTemplate($template . '.twig');
 			
