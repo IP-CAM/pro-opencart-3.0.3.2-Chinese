@@ -112,6 +112,7 @@ class ModelAccountAddress extends Model {
 				'address_id'     => $result['address_id'],
 				'firstname'      => $result['firstname'],
 				'lastname'       => $result['lastname'],
+				'telephone'      => $result['telephone'],
 				'company'        => $result['company'],
 				'address_1'      => $result['address_1'],
 				'address_2'      => $result['address_2'],

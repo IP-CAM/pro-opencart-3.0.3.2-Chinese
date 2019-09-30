@@ -98,7 +98,10 @@ class ControllerCheckoutShippingAddress extends Controller {
 
 		if (!$json) {
 			$this->load->model('account/address');
-			
+
+            $this->request->post['lastname'] = '';
+            $this->request->post['address_2'] = '';
+
 			if (isset($this->request->post['shipping_address']) && $this->request->post['shipping_address'] == 'existing') {
 				if (empty($this->request->post['address_id'])) {
 					$json['error']['warning'] = $this->language->get('error_address');
@@ -117,9 +120,9 @@ class ControllerCheckoutShippingAddress extends Controller {
 					$json['error']['firstname'] = $this->language->get('error_firstname');
 				}
 
-				if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
-					$json['error']['lastname'] = $this->language->get('error_lastname');
-				}
+                if ((utf8_strlen(trim($this->request->post['telephone'])) < 3) || (utf8_strlen(trim($this->request->post['telephone'])) > 32)) {
+                    $json['error']['telephone'] = $this->language->get('error_telephone');
+                }
 
 				if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
 					$json['error']['address_1'] = $this->language->get('error_address_1');

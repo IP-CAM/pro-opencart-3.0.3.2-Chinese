@@ -137,10 +137,10 @@ class ControllerCheckoutConfirm extends Controller {
 			}
 
 			$order_data['payment_firstname'] = $this->session->data['payment_address']['firstname'];
-			$order_data['payment_lastname'] = $this->session->data['payment_address']['lastname'];
+			$order_data['payment_lastname'] = '';
 			$order_data['payment_company'] = $this->session->data['payment_address']['company'];
 			$order_data['payment_address_1'] = $this->session->data['payment_address']['address_1'];
-			$order_data['payment_address_2'] = $this->session->data['payment_address']['address_2'];
+			$order_data['payment_address_2'] = '';
 			$order_data['payment_city'] = $this->session->data['payment_address']['city'];
 			$order_data['payment_postcode'] = $this->session->data['payment_address']['postcode'];
 			$order_data['payment_zone'] = $this->session->data['payment_address']['zone'];
@@ -164,10 +164,10 @@ class ControllerCheckoutConfirm extends Controller {
 
 			if ($this->cart->hasShipping()) {
 				$order_data['shipping_firstname'] = $this->session->data['shipping_address']['firstname'];
-				$order_data['shipping_lastname'] = $this->session->data['shipping_address']['lastname'];
+				$order_data['shipping_lastname'] = '';
 				$order_data['shipping_company'] = $this->session->data['shipping_address']['company'];
 				$order_data['shipping_address_1'] = $this->session->data['shipping_address']['address_1'];
-				$order_data['shipping_address_2'] = $this->session->data['shipping_address']['address_2'];
+				$order_data['shipping_address_2'] = '';
 				$order_data['shipping_city'] = $this->session->data['shipping_address']['city'];
 				$order_data['shipping_postcode'] = $this->session->data['shipping_address']['postcode'];
 				$order_data['shipping_zone'] = $this->session->data['shipping_address']['zone'];
