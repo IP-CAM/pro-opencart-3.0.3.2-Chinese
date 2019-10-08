@@ -23,6 +23,6 @@ $_['entry_zone']         = '省份';
 
 // Error
 $_['error_permission']   = '警告：您没有权限修改区域群组！';
-$_['error_name']         = '区域群组名称必须在 3 至 32个字符之间！';
-$_['error_description']  = '描述名称必须在 3 至 255个字符之间！';
+$_['error_name']         = '区域群组名称必须在 2 至 32个字符之间！';
+$_['error_description']  = '描述名称必须在 2 至 255个字符之间！';
 $_['error_tax_rate']     = '错误：有税率正在使用此区域群组，无法删除！';
