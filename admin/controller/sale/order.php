@@ -905,6 +905,8 @@ class ControllerSaleOrder extends Controller {
 			// Uploaded files
 			$this->load->model('tool/upload');
 
+            $this->load->model('tool/image');
+
 			$data['products'] = array();
 
 			$products = $this->model_sale_order->getOrderProducts($this->request->get['order_id']);
@@ -935,11 +937,20 @@ class ControllerSaleOrder extends Controller {
 					}
 				}
 
+                if (is_file(DIR_IMAGE . $product['image'])) {
+                    $image = $this->model_tool_image->resize($product['image'], 100, 100);
+                } else {
+                    $image = $this->model_tool_image->resize('no_image.png', 100, 100);
+                }
+
+
 				$data['products'][] = array(
+				    'image'            => $image,
 					'order_product_id' => $product['order_product_id'],
 					'product_id'       => $product['product_id'],
 					'name'    	 	   => $product['name'],
 					'model'    		   => $product['model'],
+					'sku'    		   => $product['sku'],
 					'option'   		   => $option_data,
 					'quantity'		   => $product['quantity'],
 					'price'    		   => $this->currency->format($product['price'] + ($this->config->get('config_tax') ? $product['tax'] : 0), $order_info['currency_code'], $order_info['currency_value']),
